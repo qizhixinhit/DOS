@@ -1,0 +1,4 @@
+① 针对Win10应用商店打不开的情况，请输入以下命令（复制粘贴即可）回车：
+$manifest = (Get-AppxPackage Microsoft.WindowsStore).InstallLocation + '\AppxManifest.xml' ; Add-AppxPackage -DisableDevelopmentMode -Register $manifest
+② 针对Win10应用打不开的情况，请输入以下命令：
+Get-AppXPackage -AllUsers | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
